@@ -8,12 +8,20 @@
 }
 
 .movie-card {
-  padding: 20px;
+  overflow: hidden;
+  padding: 0;
   text-align: left;
   background-color: var(--bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: var(--shadow);
+}
+
+.movie-card__poster,
+.movie-card__placeholder {
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
 }
 
 .movie-card h3 {
@@ -23,4 +31,25 @@
 
 .movie-card p {
   line-height: 1.5;
+}
+
+.movie-card__poster {
+  object-fit: cover;
+}
+
+.movie-card__placeholder {
+  display: grid;
+  place-items: center;
+  background-color: var(--code-bg);
+}
+
+.movie-card__content {
+  padding: 16px;
+}
+
+.movie-card__content p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }

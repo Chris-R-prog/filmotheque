@@ -49,6 +49,7 @@ function App() {
           key={movie.id}
           title={movie.title}
           overview={movie.overview}
+          posterPath={movie.poster_path}
         />
       ))}
     </main>
