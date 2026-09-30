@@ -1,0 +1,26 @@
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  width: 100%;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.movie-card {
+  padding: 20px;
+  text-align: left;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.movie-card h3 {
+  margin: 0 0 12px;
+  color: var(--text-h);
+}
+
+.movie-card p {
+  line-height: 1.5;
+}
