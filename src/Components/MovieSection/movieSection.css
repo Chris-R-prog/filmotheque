@@ -1,0 +1,32 @@
+.movie-section {
+  width: 100%;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.movie-section__title {
+  margin: 0 0 20px;
+  text-align: left;
+}
+
+.movie-section__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .movie-section__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .movie-section {
+    padding: 24px 16px;
+  }
+
+  .movie-section__grid {
+    grid-template-columns: 1fr;
+  }
+}
