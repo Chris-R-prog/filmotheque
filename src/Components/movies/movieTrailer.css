@@ -5,6 +5,7 @@
 
 .movie-trailer h3 {
   margin-bottom: 0.75rem;
+  color: var(--detail-color, var(--text-h));
   font-size: 1.15rem;
 }
 
@@ -13,7 +14,7 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   background-color: black;
-  border: 0;
+  border: 2px solid var(--detail-color, var(--accent));
   border-radius: 10px;
 }
 

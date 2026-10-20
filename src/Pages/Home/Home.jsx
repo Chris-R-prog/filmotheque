@@ -11,6 +11,7 @@ import "../auth.css";
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedMovieId, setSelectedMovieId] = useState(null);
+  const [selectedColor, setSelectedColor] = useState("#e50914");
   const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated);
   const [loginError, setLoginError] = useState("");
   const [isLoggingIn, setIsLoggingIn] = useState(false);
@@ -39,6 +40,11 @@ function Home() {
     } finally {
       setIsLoggingIn(false);
     }
+  }
+
+  function handleMovieSelect(movieId, color) {
+    setSelectedMovieId(movieId);
+    setSelectedColor(color);
   }
 
   const topRated = useMovies({ endpoint: "movie/top_rated" });
@@ -91,7 +97,7 @@ function Home() {
             <MovieSection
               title={sectionTitle}
               movies={displayedMovies.slice(0, 5)}
-              onSelect={setSelectedMovieId}
+              onSelect={(movieId) => handleMovieSelect(movieId, "#e50914")}
             />
           )}
         </section>
@@ -139,16 +145,17 @@ function Home() {
       <MovieSection
         title="Films populaires"
         movies={popular.movies}
-        onSelect={setSelectedMovieId}
+        onSelect={(movieId) => handleMovieSelect(movieId, "#f59e0b")}
       />
       <MovieSection
         title="Le meilleur du fantastique"
         movies={fantasy.movies}
-        onSelect={setSelectedMovieId}
+        onSelect={(movieId) => handleMovieSelect(movieId, "#a855f7")}
       />
 
       <MovieDetailsModal
         movie={selectedMovie}
+        color={selectedColor}
         onClose={() => setSelectedMovieId(null)}
       />
     </>

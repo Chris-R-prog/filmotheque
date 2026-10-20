@@ -1,7 +1,12 @@
+import styled from "styled-components";
 import "./movieDetailsModal.css";
 import MovieTrailer from "./MovieTrailer";
 
-function MovieDetailsModal({ movie, onClose }) {
+const DetailsCard = styled.section`
+  --detail-color: ${({ $color = "var(--accent)" }) => $color};
+`;
+
+function MovieDetailsModal({ movie, color, onClose }) {
   if (!movie) return null;
 
   const backdropUrl = movie.backdrop_path
@@ -12,8 +17,9 @@ function MovieDetailsModal({ movie, onClose }) {
 
   return (
     <div className="movie-modal__backdrop">
-      <section
+      <DetailsCard
         className="movie-modal"
+        $color={color}
         role="dialog"
         aria-modal="true"
         aria-labelledby="movie-modal-title"
@@ -38,7 +44,7 @@ function MovieDetailsModal({ movie, onClose }) {
           </p>
         )}
         <MovieTrailer videos={movie.videos?.results} title={movie.title} />
-      </section>
+      </DetailsCard>
     </div>
   );
 }

@@ -19,6 +19,7 @@
   text-align: left;
   background: linear-gradient(180deg, #1c1f2a, #12141c);
   border: 1px solid #414756;
+  border-top: 4px solid var(--detail-color, var(--accent));
   border-radius: 16px;
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.7);
   animation: modal-enter 180ms ease-out;
@@ -41,7 +42,7 @@
   padding: 0.5rem 1rem;
   color: white;
   font-weight: 700;
-  background-color: var(--accent);
+  background-color: var(--detail-color, var(--accent));
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -51,7 +52,7 @@
 }
 
 .movie-modal button:hover {
-  background-color: var(--accent-hover);
+  filter: brightness(1.15);
   transform: translateY(-1px);
 }
 
@@ -112,7 +113,7 @@
 
 .movie-modal__rating {
   margin-top: 0.5rem;
-  color: #f5c451;
+  color: var(--detail-color, #f5c451);
   font-weight: 700;
 }
 
