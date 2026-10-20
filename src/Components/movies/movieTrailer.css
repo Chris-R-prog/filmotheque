@@ -1,0 +1,44 @@
+/* Lecteur de bande-annonce. */
+.movie-trailer {
+  margin-top: 1.5rem;
+}
+
+.movie-trailer h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+}
+
+.movie-trailer iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: black;
+  border: 0;
+  border-radius: 10px;
+}
+
+.movie-trailer__empty {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.movie-trailer__link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding: 0.55rem 0.85rem;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  background-color: var(--accent);
+  border-radius: 6px;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.movie-trailer__link:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+}

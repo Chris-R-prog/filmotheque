@@ -1,13 +1,18 @@
+/* Mise en page de l'en-tête. */
 .site-header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   width: 100%;
   padding: 20px 32px;
   box-sizing: border-box;
   color: white;
-  background: #0b0d14;
+  background: rgba(11, 13, 20, 0.94);
   border-bottom: 1px solid #272a35;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
 }
 
 .site-header__logo {
@@ -22,6 +27,7 @@
   background: #02040a;
   border: 1px solid #272a35;
   border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
 }
 
 .site-header__logo img {
@@ -31,6 +37,13 @@
   width: 150px;
   max-width: none;
   transform: translateX(-50%);
+}
+
+.site-header__brand {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
 }
 
 .site-header__title {
@@ -48,18 +61,42 @@
   color: #ff375f;
 }
 
-.site-header__login {
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   margin-left: auto;
-  padding: 10px 18px;
+}
+
+.site-header__register,
+.site-header__login {
   color: white;
-  font: inherit;
-  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-header__register:hover,
+.site-header__register.active {
+  color: #ff5c7c;
+}
+
+.site-header__login {
+  padding: 10px 18px;
   background: transparent;
   border: 1px solid #ff375f;
   border-radius: 999px;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
 }
 
 .site-header__login:hover {
+  background: #ff375f;
+  transform: translateY(-1px);
+}
+
+.site-header__login.active {
   background: #ff375f;
 }
 
@@ -69,12 +106,24 @@
     padding: 16px;
   }
 
+  .site-header__brand {
+    margin-right: auto;
+  }
+
   .site-header__title {
     position: static;
-    margin-right: auto;
     font-size: 18px;
     letter-spacing: 2px;
     transform: none;
+  }
+
+  .site-header__nav {
+    gap: 10px;
+    margin-left: 0;
+  }
+
+  .site-header__register {
+    display: none;
   }
 
   .site-header__login {

@@ -1,39 +1,18 @@
-import MovieSection from "./Components/MovieSection/MovieSection";
-import useMovies from "./hooks/useMovies";
-import Header from "./Components/Header/Header";
+import { Route, Routes } from "react-router";
+import Layout from "./Components/layout/Layout";
+import Home from "./Pages/Home/Home";
+import NotFound from "./Pages/NotFound/NotFound";
+import Register from "./Pages/Register/Register";
 
 function App() {
-  const popular = useMovies({
-    endpoint: "movie/popular",
-  });
-
-  const fantasy = useMovies({
-    endpoint: "discover/movie",
-    genreId: 14,
-  });
-
-  const isLoading = popular.isLoading || fantasy.isLoading;
-  const error = popular.error || fantasy.error;
-
-  if (isLoading) {
-    return <p>Chargement des films...</p>;
-  }
-
-  if (error) {
-    return <p role="alert">{error}</p>;
-  }
-
   return (
-    <>
-      <main>
-        <Header />
-        <MovieSection title="Films populaires" movies={popular.movies} />
-        <MovieSection
-          title="Le meilleur du fantastique"
-          movies={fantasy.movies}
-        />
-      </main>
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 

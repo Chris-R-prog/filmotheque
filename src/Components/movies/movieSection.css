@@ -1,0 +1,78 @@
+/* Section et carrousel de films. */
+.movie-section {
+  width: 100%;
+  padding: 30px 32px;
+  box-sizing: border-box;
+}
+
+.movie-section__title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 20px;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  text-align: left;
+}
+
+.movie-section__title::before {
+  width: 4px;
+  height: 1.15em;
+  content: "";
+  background-color: var(--accent);
+  border-radius: 999px;
+}
+
+.movie-section__track {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 6px 0 14px;
+  scroll-behavior: smooth;
+  scrollbar-color: #747b8b #151821;
+  scrollbar-width: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.movie-section__track::-webkit-scrollbar {
+  height: 10px;
+}
+
+.movie-section__track::-webkit-scrollbar-thumb {
+  background-color: #747b8b;
+  border-radius: 999px;
+}
+
+.movie-section__track::-webkit-scrollbar-track {
+  background-color: #151821;
+  border-radius: 999px;
+}
+
+.movie-section__track > .movie-card {
+  flex: 0 0 220px;
+  min-width: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (max-width: 900px) {
+  .movie-section__track > .movie-card {
+    flex-basis: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .movie-section {
+    padding: 24px 16px;
+  }
+
+  .movie-section__track > .movie-card {
+    flex-basis: min(72vw, 210px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .movie-section__track {
+    scroll-behavior: auto;
+  }
+}

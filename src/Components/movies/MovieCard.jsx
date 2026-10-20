@@ -1,12 +1,17 @@
 import "./movieCard.css";
 
-function MovieCard({ title, overview, posterPath }) {
+// Carte interactive ouvrant le détail d'un film.
+function MovieCard({ id, title, overview, posterPath, onSelect }) {
   const posterUrl = posterPath
     ? `https://image.tmdb.org/t/p/w500${posterPath}`
     : null;
 
   return (
-    <article className="movie-card">
+    <button
+      className="movie-card"
+      type="button"
+      onClick={() => onSelect(id)}
+    >
       {posterUrl ? (
         <img
           className="movie-card__poster"
@@ -20,7 +25,7 @@ function MovieCard({ title, overview, posterPath }) {
         <h3>{title}</h3>
         <p>{overview}</p>
       </div>
-    </article>
+    </button>
   );
 }
 

@@ -1,0 +1,19 @@
+/* Mise en page du pied de page. */
+.site-footer {
+  padding: 1.25rem 2rem;
+  color: var(--muted);
+  text-align: center;
+  background-color: #0b0d14;
+  border-top: 1px solid var(--border);
+}
+
+.site-footer p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.site-footer span {
+  color: var(--accent);
+}

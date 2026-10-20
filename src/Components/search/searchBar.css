@@ -1,0 +1,101 @@
+/* Formulaire de recherche de films. */
+.search-bar {
+  display: flex;
+  gap: 0.75rem;
+  width: min(760px, calc(100% - 2rem));
+  margin: 1.5rem auto;
+  padding: 0.75rem;
+  background-color: rgba(23, 26, 36, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.8rem 1rem;
+  font: inherit;
+  color: white;
+  caret-color: var(--accent);
+  background-color: var(--surface-raised);
+  border: 1px solid #4a4a55;
+  border-radius: 6px;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.search-bar input::placeholder {
+  color: #a9a9b2;
+}
+
+.search-bar input:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2);
+}
+
+@media (max-width: 520px) {
+  .search-bar {
+    flex-direction: column;
+  }
+}
+
+.search-section {
+  margin: 1.5rem;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(28, 31, 43, 0.96), #11141d);
+  border: 1px solid #353a48;
+  border-top: 3px solid var(--accent);
+  border-radius: 16px;
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.34);
+}
+
+.search-section .search-bar {
+  width: auto;
+  margin: 1.5rem 2rem 0;
+}
+
+.search-section > [role="status"],
+.search-section > [role="alert"] {
+  padding: 2rem;
+}
+
+.search-section .movie-section__track {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  overflow-x: visible;
+  padding-bottom: 0;
+  scroll-snap-type: none;
+}
+
+.search-section .movie-section__track > .movie-card {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .search-section .movie-section__track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .search-section {
+    margin: 1rem;
+  }
+
+  .search-section .search-bar {
+    margin-inline: 1rem;
+  }
+
+  .search-section .movie-section__track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .search-section .movie-section__track {
+    grid-template-columns: 1fr;
+  }
+}
